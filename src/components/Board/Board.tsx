@@ -53,6 +53,7 @@ const Column: FC<ColumnProps> = ({ cells, onClick }) => {
                     <img
                         src={isGuestTurn ? arrowYellow : arrowPink}
                         onDragStart={e => e.preventDefault()}
+                        alt=''
                     />
                 </div>}
 
@@ -96,22 +97,23 @@ const TurnIndicator: FC = () => {
 
     const [time, setTime] = useState(TOTAL_TIME)
 
-    // useEffect(() => {
-    //     interval = setInterval(() => {
-    //         setTime(prev => prev - INTERVAL)
-    //     }, INTERVAL)
+    useEffect(() => {
+        clearInterval(interval)
+        interval = setInterval(() => {
+            setTime(prev => prev - INTERVAL)
+        }, INTERVAL)
 
-    //     return () => {
-    //         clearInterval(interval)
-    //         setTime(TOTAL_TIME)
-    //     }
-    // }, [currentTurn])
+        return () => {
+            clearInterval(interval)
+            setTime(TOTAL_TIME)
+        }
+    }, [currentTurn])
 
-    // useEffect(() => {
-    //     if (time < 0) {
-    //         changeTurn()
-    //     }
-    // }, [time])
+    useEffect(() => {
+        if (time < 0) {
+            changeTurn()
+        }
+    }, [time])
 
     const player = currentTurn === Players.GUEST ? 'Player 2' : 'Player 1'
     const winnerPlayer = winner === Players.GUEST ? 'Player 2' : 'Player 1'
