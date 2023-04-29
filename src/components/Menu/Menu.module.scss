@@ -1,0 +1,53 @@
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+    background-color: var(--bgMain);
+    height: 100%;
+
+    >section {
+        // Dots
+        align-self: center;
+        margin-bottom: 2rem;
+    }
+
+    >div, >button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 1rem;
+        font-weight: 700;
+        border-radius: 12px;
+        border: 2px solid black;
+        box-shadow: var(--bottomShadow);
+        cursor: pointer;
+        height: 3.5rem;
+        color: var(--black);
+
+        &:first-of-type {
+            background-color: var(--pink);
+            color: white;
+        }
+        &:nth-of-type(2) {
+            background-color: var(--yellow);
+        }
+        &:last-of-type {
+            background-color: white;
+        }
+
+        span {
+            line-height: 1;
+        }
+
+        img {
+            height: 2.3rem;
+        }
+    }
+}
+
+@media only screen and (width <= 600px){
+    .menu {
+        padding: 6rem 2rem 2rem;
+    }
+}

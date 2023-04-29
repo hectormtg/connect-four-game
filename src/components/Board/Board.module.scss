@@ -1,0 +1,144 @@
+.boardWrapper {
+    position: relative;
+}
+
+$gap: 1rem;
+
+.board {
+    background-color: white;
+    border-radius: 2rem;
+    border: 2px solid black;
+    padding: 1rem 1rem 3rem;
+    margin: 2rem 0 0;
+    box-shadow: var(--bottomShadowLg);
+    display: flex;
+    justify-content: space-evenly;
+    gap: $gap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: $gap;
+    position: relative;
+    cursor: pointer;
+
+    >div {
+        // Selected column indicator
+        transition: .05s linear;
+        opacity: 0;
+        position: absolute;
+        inset: -2.5rem 0 auto;
+        margin: auto;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 100%;
+        pointer-events: none;
+
+        img {
+            height: 100%;
+        }
+    }
+
+
+    &:hover>div {
+        opacity: 1;
+    }
+}
+
+.cell {
+    $size: 3rem;
+    border-radius: 100%;
+    background-color: var(--bgMain);
+    border: 2px solid black;
+    width: $size;
+    height: $size;
+    box-shadow: inset 0 6px 0 black;
+}
+
+@mixin turnIndicator {
+    position: absolute;
+    margin: auto;
+    padding: 1rem;
+    font-weight: 500;
+    color: white;
+    z-index: 1;
+
+    p {
+        margin-bottom: 6px;
+        text-transform: uppercase;
+        font-size: 0.875rem;
+    }
+
+    span {
+        font-size: 2rem;
+        line-height: 1;
+    }
+}
+
+.turnIndicator {
+    @include turnIndicator;
+    max-width: 145px;
+    inset: auto 0 -5rem;
+
+    img {
+        position: absolute;
+        inset: -1.2rem 0 auto;
+        margin: auto;
+        z-index: -1;
+        width: 100%;
+    }
+}
+
+.victoryContainer {
+    @include turnIndicator;
+    inset: auto 0 -7rem;
+    color: var(--black);
+    border: 2px solid black;
+    border-radius: 24px;
+    background-color: white;
+    text-transform: uppercase;
+    max-width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--bottomShadowLg);
+
+    span {
+        font-size: 2.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+}
+
+@media only screen and (width <= 600px) {
+    $gap: 0.5rem;
+    .board {
+        gap: $gap;
+        padding: 0.5rem 0.5rem 3rem;
+        margin: 0;
+    }
+    
+    .column {
+        gap: $gap;
+
+        >div {
+            display: none;
+        }
+    }
+
+    .cell {
+        $size: 2.6rem;
+        width: $size;
+        height: $size;
+    }
+
+    .turnIndicator {
+        max-width: 150px;
+        inset: auto 0 -5.5rem;
+    }
+
+    .victoryContainer {
+        inset: auto 0 -8rem;
+    }
+}

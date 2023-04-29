@@ -1,0 +1,36 @@
+.dotsContainer {
+    $gap: 4px;
+    $dotSize: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: $gap;
+    grid-row-gap: $gap;
+
+    >* {
+        border-radius: 100%;
+        height: $dotSize;
+        width: $dotSize;
+        background-color: var(--pink);
+        border: 2px solid black;
+        box-shadow: var(--bottomShadowSm);
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            background-color: var(--yellow);
+        }
+    }
+}
+
+@media only screen and (width <=600px) {
+    .dotsContainer {
+        $dotSizeLg: 1.5rem;
+
+        >* {
+            height: $dotSizeLg;
+            width: $dotSizeLg;
+            box-shadow: var(--bottomShadow);
+        }
+    }
+}

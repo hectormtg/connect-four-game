@@ -1,0 +1,35 @@
+.filled {
+    background-color: var(--bgPurple);
+    text-transform: uppercase;
+
+    &:focus,
+    &:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+
+    &:hover {
+        border-color: #646cff;
+    }
+}
+
+.icon {
+    background-color: white;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    color: var(--black);
+    padding: 8px;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:focus,
+    &:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+
+    &:hover {
+        border-color: #646cff;
+    }
+}

@@ -1,0 +1,56 @@
+$borderRadius: 24px;
+
+.modalWrapper {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    z-index: 2;
+    max-width: 350px;
+    max-height: 436px;
+    animation: fadeIn .3s ease;
+
+    >button {
+        position: absolute;
+        inset: -0.85rem -0.85rem auto auto;
+        border: 2px solid black;
+        box-shadow: var(--bottomShadow);
+    }
+}
+
+.modal {
+    box-shadow: var(--bottomShadowLg);
+    border-radius: $borderRadius;
+    border: 3px solid black;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.bgLayer {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+    animation: fadeIn .3s ease;
+}
+
+@media only screen and (width <= 600px){
+    .modalWrapper {
+        max-width: unset;
+        max-height: unset;
+
+        >button {
+            inset: 1rem 1rem auto auto;
+        }
+    }
+
+    .modal {
+        border-radius: 0;
+        border: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}

@@ -1,0 +1,65 @@
+.container {
+    border-radius: 1rem;
+    background-color: white;
+    border: 2px solid black;
+    padding: 1.5rem 1.5rem;
+    font-weight: 500;
+    position: relative;
+    box-shadow: var(--bottomShadowLg);
+    min-width: 125px;
+
+    p {
+        margin-bottom: 8px;
+    }
+
+    span {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    >div {
+        // Player icon
+        $size: 2.5rem;
+        position: absolute;
+        inset: -1.5rem 0 auto;
+        width: $size;
+        height: $size;
+        background-color: var(--pink);
+        border-radius: 100%;
+        border: 2px solid black;
+        margin: auto;
+        box-shadow: var(--bottomShadow);
+
+        img {
+            height: 100%;
+            pointer-events: none;
+            user-select: none;
+        }
+    }
+}
+
+@media only screen and (width <=600px) {
+    $space: -1.5rem;
+    $padding: 2rem;
+    .container {
+        padding: 1rem 1rem 1rem $padding;
+        border-radius: 1.5rem;
+        width: 45%;
+
+        >div {
+            inset: 0 auto 0 $space;
+            $size: 3rem;
+            width: $size;
+            height: $size;
+        }
+    }
+
+    .guest {
+        inset: 0 $space 0 auto !important;
+    }
+
+    .containerGuest {
+        padding: 1rem $padding 1rem 1rem !important;
+    }
+}
