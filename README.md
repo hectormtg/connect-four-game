@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links  
 
-- Solution URL: [countries-api-hectormtg.vercel.app](https://countries-api-hectormtg.vercel.app)
+- Solution URL: [connect-four-game-flax.vercel.app](https://connect-four-game-flax.vercel.app/)
 
   
 

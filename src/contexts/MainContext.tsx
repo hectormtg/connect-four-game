@@ -102,17 +102,14 @@ const MainContextProvider: FC<Props> = ({ children }) => {
                 // if (c === col && r === row) continue
 
                 const cell = columns[c][r]
-                // console.log('Column: ', c, ' - Cell: ', cell.index)
 
                 if (!cell.isSelected) continue
 
                 if (cell.isGuest && currentTurnHandler === Players.GUEST) {
                     counterGuest = { ...counterGuest, [c]: { ...counterGuest[c], [r]: true } }
-                    console.log('Is same color: ', currentTurnHandler)
                     // countCells(c, r)
                 } else if (!cell.isGuest && currentTurnHandler === Players.PLAYER_1) {
                     counter = { ...counter, [c]: { ...counter[c], [r]: true } }
-                    console.log('Is same color: ', currentTurnHandler)
                 }
 
                 checkWin()
@@ -133,15 +130,12 @@ const MainContextProvider: FC<Props> = ({ children }) => {
                 const diff = row - prevRow
                 const diffCol = col - prevCol
 
-                // console.log('Diff: ' , diff)
                 if (diff < 2) {
                     sum = { ...sum, [col]: !!sum[col] ? sum[col] + 1 : 1 }
                 } else {
                     sum = { ...sum, [col]: 1 }
                 }
-                // console.log('Sum: ', sum)
 
-                // console.log('Diff col: ' , diffCol)
                 // if (col !== prevCol && row === prevRow && diffCol < 2) {
                 if (toCheck[prevCol][row] && diffCol < 2 && col !== prevCol) {
                     sumCol = { ...sumCol, [row]: !!sumCol[row] ? sumCol[row] + 1 : 1 }
@@ -152,7 +146,6 @@ const MainContextProvider: FC<Props> = ({ children }) => {
                 prevRow = row
             })
 
-            // console.log('Sum: ', sum)
             if (sum[col] === 4 || sumCol[prevRow] === 4) {
                 setWinner(currentTurnHandler)
                 setScore(prev => ({
@@ -167,8 +160,8 @@ const MainContextProvider: FC<Props> = ({ children }) => {
             prevCol = col
         })
 
-        console.log('Sum vertical (cols): ', sum)
-        console.log('Sum horizontal (rows): ', sumCol)
+        // console.log('Sum vertical (cols): ', sum)
+        // console.log('Sum horizontal (rows): ', sumCol)
     }
 
     return (
